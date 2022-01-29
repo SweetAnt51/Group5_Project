@@ -1,52 +1,12 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import MenuIcon from '@material-ui/icons/Menu';
 import PopUpMenu from './PopUpMenu';
-// import Switch from '@material-ui/core/Switch';
-import { withStyles } from "@material-ui/core/styles";
-
 
 function Header(props) {
-    // const [checked, setChecked] = useState(false);
-    
-    // const CustomSwitch = withStyles({
-    //   thumb: {
-    //       // Controls default (unchecked) color for the thumb
-    //       color:'white',
-    //     },
-    //     colorSecondary: {
-    //     "&.Mui-checked + .MuiSwitch-track": {
-    //       backgroundColor: "red",
-    //     }},
-    //     track: {
-    //     backgroundColor: "black"
-    //   },
-
-    // })(Switch);
-    
-    // const controlTheme = () => {
-    //     if (props.theme === 'dark'){
-    //         setChecked(true);
-    //         props.toggleTheme();
-    //     }else{
-    //         setChecked(false);
-    //         props.toggleTheme();
-    //     }
-    // };
-    
-    // useEffect( () => {
-    //     if (props.theme === 'dark'){
-    //         setChecked(false);
-    //     }else{
-    //         setChecked(true);
-    //     }
-    // }, [props.theme]);
-
-    
+  
     return( 
         <header style={{padding:'15px',
-            // text-align: center;
             width:'100%',
             margin: 'auto',
             height: '22px',

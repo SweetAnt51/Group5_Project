@@ -15,12 +15,13 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route("/get_data")
+@app.route("/get_data", methods=['POST'])
 def get_data():
-    #do stuff here
-
-    return "hello word"
+   
+    print(request.form['test'])
     
+    return jsonify({'test':'test'})
+
 #runs the flask server if called directly.  debug = True allows for hot reloading.
 if __name__ == "__main__":
     app.run(host='localhost', port=5000, debug=True)

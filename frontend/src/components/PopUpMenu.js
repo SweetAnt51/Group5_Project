@@ -17,11 +17,20 @@ function PopUpMenu(props) {
   
   const [mgrsPopUp, openMgrsPopUp] = useState(false);
  
-  // const handleModeChange = (view) => {
-  //     props.resetPage([]);
-  //     props.setMode(view);
-  //     handleClose();
-  // };
+  const testFetch = async () => {
+    var formData = new FormData();
+    formData.append('test', 'This is a test call');
+    await fetch('/get_data',{
+      method: "POST",
+      body: formData
+      }).then(res => {
+          if (res.status !== 200){
+              console.log(res);
+              return false;
+          }
+        return res.json();
+    });
+  }
 
  return (
     <div>
@@ -38,7 +47,7 @@ function PopUpMenu(props) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-      <MenuItem >Menu Option 1</MenuItem>
+      <MenuItem onClick={() => testFetch()}>Menu Option 1</MenuItem>
       <MenuItem >Menu Option 2</MenuItem>
       <MenuItem >Menu Option 3</MenuItem>
       </Menu>
