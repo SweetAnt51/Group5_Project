@@ -1,22 +1,30 @@
-
-import { useDarkMode } from './styles/UseDarkTheme';
 import PermMiniDrawerLeft from './components/PermMiniDrawerLeft'
 import Header from './components/Header'
+import Form from './components/Form'
+import { applicationForm, loginForm } from './dataFiles/formData'
 import {useState} from 'react'
 
 function App() {
-  const [theme, toggleTheme] = useDarkMode();
-  const [user, setUser] = useState('applicant')
+  // const [user, setUser] = useState('applicant')  **Not needed yet but will use to control what an applicant can see vs what a committee member can see.
+  const [mode, setMode] = useState('home')
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
 
  
   return (
     <div>
-      {user == 'applicant' ?
-        <Header text="Demo for Testing"/>
-        : null
+      <Header text="Demo for Testing" setMode={setMode} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+      { isLoggedIn ? 
+        <div>
+        <PermMiniDrawerLeft />
+        {mode === 'apply' ?
+          <Form formData = {applicationForm} />
+          : 
+          null
+        }
+        </div>
+        :
+        <Form formData= {loginForm} setIsLoggedIn={setIsLoggedIn}/>
       }
-      <PermMiniDrawerLeft theme={theme}/>
-
     </div>
   );
 }

@@ -15,8 +15,6 @@ function PopUpMenu(props) {
     setAnchorEl(null);
   };
   
-  const [mgrsPopUp, openMgrsPopUp] = useState(false);
- 
   const testFetch = async () => {
     var formData = new FormData();
     formData.append('test', 'This is a test call');
@@ -47,9 +45,10 @@ function PopUpMenu(props) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-      <MenuItem onClick={() => testFetch()}>Menu Option 1</MenuItem>
-      <MenuItem >Menu Option 2</MenuItem>
-      <MenuItem >Menu Option 3</MenuItem>
+      <MenuItem onClick = {() => props.setMode('home')}>Home</MenuItem>
+      <MenuItem onClick = {() => props.setMode('apply')}>New Application</MenuItem>
+      <MenuItem onClick={() => testFetch()}>Test Fetch</MenuItem>
+      
       </Menu>
     </div>
   );

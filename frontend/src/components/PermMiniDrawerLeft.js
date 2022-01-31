@@ -17,7 +17,7 @@ function PermMiniDrawerRight(props){
       display: 'flex',
     },
     appBar: {
-      zIndex: theme.zIndex.drawer + 1,
+      zIndex: 10,
     },
     drawer: {
       width: drawerWidth,
@@ -37,7 +37,7 @@ function PermMiniDrawerRight(props){
     },
     content: {
       flexGrow: 1,
-      padding: theme.spacing(3),
+      // padding: theme.spacing(3),
     },
     '@global': {
     // You should target [class*="MuiButton-root"] instead if you nest themes.
