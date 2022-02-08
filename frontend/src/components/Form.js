@@ -5,16 +5,35 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import { fadeIn } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
+import { validateApplication, validateLogIn, validateRegistration } from '../dataFiles/formValidation';
+import { makeStyles } from '@material-ui/core/styles';
 
 const fadeInAnimation = keyframes`${fadeIn}`;
 const FadeInDiv = styled.div`
   animation: 1.5s ${fadeInAnimation};
 `;
 
-
 export default function Form(props){
     var formData = props.formData
     const [state, setState] = useState('')
+
+    const useStyles = makeStyles((theme) => ({
+        login: {   
+                    width:'100%',
+                    height: '100%',
+                    margin: 'auto',
+                    marginTop : '15%'
+                    // display:'flex',
+        },
+        genericForm : {
+                    width:'100%',
+                    height: '100%',
+                    margin: 'auto',
+                    marginTop : '10%'
+        }
+      }));
+    
+    const classes = useStyles();
 
     // function parses through the formData that was passed as a props and renders each form item.
     const renderInputs = (formData) =>{
@@ -27,6 +46,7 @@ export default function Form(props){
                         id = {line.id}
                         label = {line.label}
                         type = {line.type}
+                        name = {line.name}
                         />
                     : line.type === 'select' ?
                     
@@ -79,16 +99,49 @@ export default function Form(props){
         })
     }
 
+    const getFormValues = (formName) => { //function returns a FormData object for all inputs with the parameter name.
+        var formValues = new FormData();  //this object will be sent to the backend.  Can be read in as a dictionary.
+        let inputArray = document.getElementsByName('login')
+        inputArray.forEach(element => {
+            formValues.append(element.id, element.value)
+        });
+
+        return formValues
+    }
+
     const handleSubmit = (type) => {
 
         if (type === 'submitLogin'){
-            // fetch call for login will go here
-            props.setIsLoggedIn(true);
+            if (validateLogIn()){
+                var data = getFormValues('login') //this object will be sent to the backend.  Can be read in as a dictionary.
+                // fetch call for login will go here
+                if (document.getElementById('userName').value === 'admin'){
+                    props.setIsLoggedIn(true);
+                    props.setRole('reviewer')
+                    props.setMode('review')
+                }else{
+                    props.setIsLoggedIn(true);
+                    props.setRole('applicant')
+                    props.setMode('apply')
+                }
+                // props.setIsLoggedIn(true);
+            }
         }
 
         if (type === 'submitApplication'){
-            //fetch call for submit app will go here
-            alert('Submit Application Not Implemented Yet.')
+            if (validateApplication()){
+                var data = getFormValues('app') //this object will be sent to the backend.  Can be read in as a dictionary.
+                //fetch call for submit app will go here
+                alert('Submit Application Not Implemented Yet.')
+            }
+        }
+        
+        if (type === 'submitRegistration'){
+            if (validateRegistration()){
+                var data = getFormValues('register') //this object will be sent to the backend.  Can be read in as a dictionary.
+                //fetch call for register will go here
+                alert('Registeration Not Implemented Yet.')
+            }
         }
     }
 
@@ -105,10 +158,10 @@ export default function Form(props){
                     sx={{
                         '& .MuiTextField-root': { m: 1, width: '45ch' },
                     }}
-                    // noValidate
                     autoComplete="off"
+                    id = 'test'
                 >
-                    <div>
+                    <div className={props.mode === 'login' ? classes.login : classes.genericForm}>
                         {renderInputs(formData)}
                     </div>
                 </Box>

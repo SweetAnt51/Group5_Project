@@ -1,5 +1,63 @@
 import submitButton from '../images/submit.svg'
 
+export const registerForm = [
+                            {   //Label Section
+                                id: 'regiter',
+                                type : 'label',
+                                text : 'Please Enter Your Information'
+                                //End Label Section
+                            },
+                            {
+                                id : 'fname',
+                                type : 'text',
+                                label : 'First Name',
+                                required : true,
+                                name : 'register'                                                         
+                            },
+                            {
+                                id : 'lname',
+                                type : 'text',
+                                label : 'Last Name',
+                                required : true,
+                                name : 'register'                     
+                            },
+                            {
+                                id : 'email',
+                                type : 'text',
+                                label : 'Email Address',
+                                required : true,
+                                name : 'register'                          
+                            },
+                            {
+                                id : 'userName',
+                                type : 'text',
+                                label : 'Username',
+                                required : true,
+                                name : 'register'                          
+                            },
+                            {
+                                id : 'pw1',
+                                type : 'password',
+                                label : 'Password',
+                                required : true,
+                                name : 'register'
+                            },
+                            {
+                                id : 'pw2',
+                                type : 'password',
+                                label : 'Re-enter Password',
+                                required : true,
+                                name : 'register'
+                            },
+                            {   //define submit button
+                                id: 'submitRegistration',
+                                image : submitButton,
+                                type : 'button',
+                                text: 'Login'
+                            }
+                        
+                        ]
+
 export const loginForm = [
                             {   //Label Section
                                 id: 'login',
@@ -11,13 +69,15 @@ export const loginForm = [
                                 id : 'userName',
                                 type : 'text',
                                 label : 'Username',
-                                required : true                          
+                                required : true,
+                                name : 'login'                         
                             },
                             {
-                                id : 'mName',
+                                id : 'pw',
                                 type : 'password',
                                 label : 'Password',
-                                required : true
+                                required : true,
+                                name : 'login' 
                             },
                             {   //define submit button
                                 id: 'submitLogin',
@@ -39,25 +99,29 @@ export const applicationForm = [
                                 id : 'fName',
                                 type : 'text',
                                 label : 'First Name',
-                                required : true                          
+                                required : true,
+                                name : 'app'                       
                             },
                             {
                                 id : 'mName',
                                 type : 'text',
                                 label : 'Middle Name',
-                                required : false
+                                required : false,
+                                name : 'app'
                             },
                             {
                                 id : 'lName',
                                 type : 'text',
                                 label : 'Last Name',
-                                required : true
+                                required : true,
+                                name : 'app'
                             },
                             {
                                 id : 'dob',
                                 type : 'date',
                                 label : 'Date of Birth',
-                                required : true
+                                required : true,
+                                name : 'app'
                             },
                             {  //Label Section
                                 id: 'addressLabel',
@@ -69,13 +133,15 @@ export const applicationForm = [
                                 id : 'streetAddress',
                                 type : 'text',
                                 label : 'Street Address',
-                                required : true
+                                required : true,
+                                name : 'app'
                             },
                             {
                                 id : 'city',
                                 type : 'text',
                                 label : 'City',
-                                required : true
+                                required : true,
+                                name : 'app'
                             },
                             {
                                 id : 'state',
@@ -96,7 +162,8 @@ export const applicationForm = [
                                               value : 'fl',
                                               label : 'FL',
                                             }
-                                        ]
+                                        ],
+                                name : 'app'
                             },
                             {   //define submit button
                                 id: 'submitApplication',

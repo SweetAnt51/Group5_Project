@@ -46,8 +46,29 @@ function PopUpMenu(props) {
         onClose={handleClose}
       >
       <MenuItem onClick = {() => props.setMode('home')}>Home</MenuItem>
-      <MenuItem onClick = {() => props.setMode('apply')}>New Application</MenuItem>
-      <MenuItem onClick={() => testFetch()}>Test Fetch</MenuItem>
+      {props.isLoggedIn ?
+          props.role === 'applicant' ?
+            <div>
+              <MenuItem onClick = {() => props.setMode('apply')}>New Application</MenuItem>
+              <MenuItem onClick={() => testFetch()}>Test Fetch</MenuItem>
+            </div>
+          :
+          props.role === 'reviewer' ?
+            <div>
+              <MenuItem onClick = {() => props.setMode('review')}>Review Applications</MenuItem>
+              <MenuItem onClick={() => testFetch()}>Test Fetch</MenuItem>
+            </div>
+        :
+        null
+
+      :
+        <div>
+          <MenuItem onClick = {() => props.setMode('register')}>Sign Up</MenuItem>
+          <MenuItem onClick={() => testFetch()}>Test Fetch</MenuItem>
+        </div>
+      }
+      
+      
       
       </Menu>
     </div>

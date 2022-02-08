@@ -67,53 +67,14 @@ function PermMiniDrawerRight(props){
         <Toolbar />
         <div className={classes.drawerContainer}>
           <List>
-              <ListItem button key={1}>
-                <ListItemIcon >
-                  <article className="icon-tooltip">  
-                    <PostAdd className={classes.icons} />
-                    {/* <span className="icon-tooltiptext">New<br/>Route</span> */}
-                  </article>  
-                </ListItemIcon>
-              </ListItem>
-              <ListItem button key={2}>
-                <ListItemIcon >
-                 <article className="icon-tooltip">
-                    <PieChartTwoTone className={classes.icons} />
-                    {/* <span className="icon-tooltiptext">Data<br/>Dashboard</span> */}
-                 </article>
-                </ListItemIcon>
-              </ListItem>
-              <ListItem button key={3}>
-                <ListItemIcon onClick={() => scrollTo('timeSeries')}>
-                  <article className="icon-tooltip">  
-                    <PollTwoTone className={classes.icons} />
-                    {/* <span className="icon-tooltiptext">Time<br/>Series</span> */}
-                 </article>
-                </ListItemIcon>
-              </ListItem>
-              <ListItem button key={4}>
+              <ListItem button key={1} onClick={props.toggleDrawer('left', true)}>
                 <ListItemIcon >
                   <article className="icon-tooltip">
-                    <TableChartTwoTone className={classes.icons} />
-                    {/* <span className="icon-tooltiptext">Threat<br/>Table</span> */}
-                 </article>
+                    <TuneRoundedIcon className={classes.icons} /><br/>
+                    <span className="icon-tooltiptext">Filters</span>
+                  </article>
                 </ListItemIcon>
               </ListItem>
-              <ListItem button key={5}>
-                <ListItemIcon >
-                  <article className="icon-tooltip">
-                    <TuneRoundedIcon className={classes.icons} />
-                    {/* <span className="icon-tooltiptext">Adjust<br/>Threats</span> */}
-                 </article>
-                </ListItemIcon>
-              </ListItem>
-              {/* <ListItem button key={6}>
-                <ListItemIcon >
-                  <article className="icon-tooltip">
-                    {/* <span className="icon-tooltiptext">Export<br/>Data</span> */}
-                 {/* </article>
-                </ListItemIcon>
-              </ListItem> */}
           </List>
         </div>
     </Drawer>

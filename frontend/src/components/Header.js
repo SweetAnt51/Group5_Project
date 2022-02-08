@@ -43,26 +43,44 @@ function Header(props) {
       }));
 
     const classes = useStyles();
-    console.log(props.isLoggedIn)
+
+    const handleApplyClick = () => {
+        if (props.isLoggedIn){
+            props.setMode('apply');
+        }else{
+            alert('Please Login or Sign Up to Apply');
+        }
+        
+        
+    }
+
     return( 
         <header className={classes.header}>
 
-            <PopUpMenu setMode={props.setMode}/> 
+            <PopUpMenu setMode={props.setMode} isLoggedIn={props.isLoggedIn} role={props.role}/> 
             
             <h1 className={classes.title}> 
                 {props.text}
             </h1>
             
             <div className={classes.linkContainer}>                
-                <span className={classes.link} onClick={() => props.setIsLoggedIn(false)}>
+                {!props.isLoggedIn ?
+                <span className={classes.link} onClick={() => props.setMode('register')}>Sign Up</span>
+                : null
+                }
+                
+                <span className={classes.link} onClick={() => {props.setIsLoggedIn(false); props.setMode('login')}} >
                         {props.isLoggedIn ?
                             "Log Out"
                         :
                             "Login"
                         }
-                        
                 </span>
-                <span className={classes.link} onClick={() => props.setMode('apply')}>Apply Today</span>
+                {props.role === 'applicant' ? 
+                    <span className={classes.link} onClick={() => handleApplyClick()}>Apply Today</span>
+                :
+                    null
+                }
             </div>
         </header>);    
 }
