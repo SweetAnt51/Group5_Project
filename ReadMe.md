@@ -12,8 +12,8 @@ To run the backend only:
 ### Install python requirements with:
 
 From Home Directory:
-`cd backend`  
-`pip install -r requirements.txt`  
+1. `cd backend`  
+2. `pip install -r requirements.txt`  
 
 ## Running the Application
 
@@ -26,9 +26,9 @@ This will start the application and it will be available on your local machine a
 
 ### To install frontend requirements (only needed if developing the frontend):
 
-From the Home Directory:
-`cd frontend`  
-`npm install`  
+From the Home Directory:  
+1. `cd frontend`  
+2. `npm install`  
 
 This will install all the required node modules.
 
@@ -36,14 +36,14 @@ This will install all the required node modules.
 
 The frontend folder is only for developing the frontend.  The application serves the frontend through the flask application in the backend folder. You will need to compile the frontend with npm and then move the files to appropriate folder.  
 
-From the frontend directory:  
+1. From the frontend directory:  
 `npm run build`  
 
-This will compile the frontend into the build folder.  Once complete move the following files and folders.  
+2. This will compile the frontend into the build folder.  Once complete move the following files and folders.  
 
-Move "build/index.html" into "backend/templates" (replace the existing file if applicable)  
+3. Move "build/index.html" into "backend/templates" (replace the existing file if applicable)  
 
-Move the "css", "js", and "media" folders from "build/static" to "backend/static". (replace the existing folders if applicable)  
+4. Move the "css", "js", and "media" folders from "build/static" to "backend/static". (replace the existing folders if applicable)  
 
 Once this is complete you can restart the backend server and the new front end will be available.  
 
