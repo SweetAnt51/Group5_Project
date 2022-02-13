@@ -4,7 +4,7 @@ import Window from "./Window";
 import ITEM_TYPE from "../../data/types"
 
 
-const Card = ({item, index, moveItem, status}) =>{
+const Card = ({item, index, moveItem, status, user}) =>{
     const ref = useRef(null);
 
     const [, drop] = useDrop({
@@ -53,6 +53,19 @@ const Card = ({item, index, moveItem, status}) =>{
 
     drag(drop(ref));
 
+    const getIcon = (status) => {
+        if (status === 'submitted'){
+            return "📬"
+        } else if (status === 'in review'){
+            return "📝"
+        } else if (status === 'rejected'){
+            return "❌"
+        } else if (status === 'accepted'){
+            return "✅"
+        }
+        return null
+    }
+
     return (
         <Fragment>
             <div
@@ -63,12 +76,13 @@ const Card = ({item, index, moveItem, status}) =>{
             >
                 <div className={"color-bar"} style={{ backgroundColor: status.color }}/>
                 <p className={"item-title"}>{item.title}</p>
-                <p className={"item-status"}>{item.icon}</p>
+                <p className={"item-status"}>{getIcon(item.status)}</p>
             </div>
             <Window
                 item={item}
                 onClose={onClose}
                 show={show}
+                user={user}
             />
         </Fragment>
     );

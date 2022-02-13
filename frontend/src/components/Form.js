@@ -115,7 +115,7 @@ export default function Form(props){
             if (validateLogIn()){
                 var data = getFormValues('login') //this object will be sent to the backend.  Can be read in as a dictionary.
                 // fetch call for login will go here
-                if (document.getElementById('userName').value === 'admin'){
+                if (document.getElementById('userName').value === 'anthony' || document.getElementById('userName').value === 'jean' || document.getElementById('userName').value === 'dan' || document.getElementById('userName').value === 'raymond') {
                     props.setIsLoggedIn(true);
                     props.setRole('reviewer')
                     props.setMode('review')
@@ -124,7 +124,6 @@ export default function Form(props){
                     props.setRole('applicant')
                     props.setMode('apply')
                 }
-                // props.setIsLoggedIn(true);
             }
         }
 

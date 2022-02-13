@@ -10,9 +10,10 @@ import Application from "./components/Application/Application"
 
 function App() {
   // const [user, setUser] = useState('applicant')  **Not needed yet but will use to control what an applicant can see vs what a committee member can see.
-  const [mode, setMode] = useState('home')
+  const [mode, setMode] = useState('login')
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [role, setRole] = useState('');
+  const [user, setUser] = useState('anthony')
  
   return (
     <div>
@@ -26,7 +27,7 @@ function App() {
           : mode === 'review' ?  
           
             <DndProvider backend={HTML5Backend}>
-              <Board />
+              <Board user={user}/>
             </DndProvider>
           :
           null

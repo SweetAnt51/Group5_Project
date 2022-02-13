@@ -1,83 +1,87 @@
-const data = [{
-    id: 1,
-    icon: "📬",
-    status: "submitted",
-    title: "Michael Scott",
-    app_id: "Application Number 12345",
-    major : "Computer Science",
-    submit_date : '2022-02-08'
-}, {
-    id: 2,
-    icon: "📬",
-    status: "submitted",
-    title: "Dwight Schrute",
-    app_id: "Application Number 12345",
-    major : "Math",
-    submit_date : '2022-02-06'
-}, {
-    id: 3,
-    icon: "📬",
-    status: "submitted",
-    title: "Pam Halpert",
-    app_id: "Application Number 12345",
-    major: "Art",
-    submit_date : '2022-02-06'
-}, {
-    id: 4,
-    icon: "📬",
-    status: "submitted",
-    title: "Jim Halpert",
-    app_id: "Application Number 12345",
-    major: "Sports Marketing",
-    submit_date : '2022-02-06'
-},
-{
-    id: 5,
-    icon: "📬",
-    status: "submitted",
-    title: "Kevin Malone",
-    app_id: "Application Number 12345",
-    major: "Culinary Arts",
-    submit_date : '2022-02-06'
-},
-{
-    id: 6,
-    icon: "📬",
-    status: "submitted",
-    title: "Oscar Martinez",
-    app_id: "Application Number 12345",
-    major: "Computer Engineering",
-    submit_date : '2022-02-06'
-},
-{
-    id: 7,
-    icon: "📬",
-    status: "submitted",
-    title: "Angela Martin",
-    app_id: "Application Number 12345",
-    major: "Accounting",
-    submit_date : '2022-02-07'
-},
-{
-    id: 8,
-    icon: "📬",
-    status: "submitted",
-    title: "Meridth Palmer",
-    app_id: "Application Number 12345",
-    major: "English",
-    submit_date : '2022-02-05'
-}
-];
+const data = [{"id": 0, "status": "in review", "title": "Pam Palmer", "app_id": "Application Number 0", "major": "Art", "submit_date": "2020-02-08"}, {"id": 1, "status": "submitted", "title": "Kevin Schrute", "app_id": "Application Number 1", "major": "Computer Science", "submit_date": "2020-02-03"}, {"id": 2, "status": "accepted", "title": "Gabe Lewis", "app_id": "Application Number 2", "major": "Culinary Arts", "submit_date": "2020-02-03"}, {"id": 3, "status": "submitted", "title": "Gabe Martin", "app_id": "Application Number 3", "major": "Computer Engineering", "submit_date": "2020-02-08"}, {"id": 4, "status": "in review", "title": "Dwight Halpert", "app_id": "Application Number 4", "major": "Accounting", "submit_date": "2020-02-01"}, {"id": 5, "status": "accepted", "title": "Angela Palmer", "app_id": "Application Number 5", "major": "English", "submit_date": "2020-02-01"}, {"id": 6, "status": "submitted", "title": "Gabe Martinez", "app_id": "Application Number 6", "major": "Accounting", "submit_date": "2020-02-03"}, {"id": 7, "status": "rejected", "title": "Kevin Palmer", "app_id": "Application Number 7", "major": "Sports Marketing", "submit_date": "2020-02-20"}, {"id": 8, "status": "in review", "title": "Kevin Schrute", "app_id": "Application Number 8", "major": "Accounting", "submit_date": "2020-02-01"}, {"id": 9, "status": "rejected", "title": "Michael Schrute", "app_id": "Application Number 9", "major": "Computer Science", "submit_date": "2020-02-12"}, {"id": 10, "status": "accepted", "title": "Kevin Martin", "app_id": "Application Number 10", "major": "Math", "submit_date": "2020-02-01"}, {"id": 11, "status": "in review", "title": "Pam Martin", "app_id": "Application Number 11", "major": "Art", "submit_date": "2020-02-08"}, {"id": 12, "status": "submitted", "title": "Erin Martin", "app_id": "Application Number 12", "major": "English", "submit_date": "2020-02-05"}, {"id": 13, "status": "rejected", "title": "Michael Scott", "app_id": "Application Number 13", "major": "Computer Science", "submit_date": "2020-02-01"}, {"id": 14, "status": "in review", "title": "Erin Scott", "app_id": "Application Number 14", "major": "Math", "submit_date": "2020-02-12"}, {"id": 15, "status": "accepted", "title": "Erin Halpert", "app_id": "Application Number 15", "major": "Computer Science", "submit_date": "2020-02-03"}, {"id": 16, "status": "rejected", "title": "Kevin Martinez", "app_id": "Application Number 16", "major": "Computer Engineering", "submit_date": "2020-02-12"}, {"id": 17, "status": "rejected", "title": "Michael Halpert", "app_id": "Application Number 17", "major": "English", "submit_date": "2020-02-03"}, {"id": 18, "status": "submitted", "title": "Erin Halpert", "app_id": "Application Number 18", "major": "Accounting", "submit_date": "2020-02-05"}, {"id": 19, "status": "rejected", "title": "Jim Scott", "app_id": "Application Number 19", "major": "Sports Marketing", "submit_date": "2020-02-22"}, {"id": 20, "status": "accepted", "title": "Pam Schrute", "app_id": "Application Number 20", "major": "English", "submit_date": "2020-02-03"}, {"id": 21, "status": "submitted", "title": "Oscar Lewis", "app_id": "Application Number 21", "major": "Computer Science", "submit_date": "2020-02-28"}, {"id": 22, "status": "rejected", "title": "Dwight Schrute", "app_id": "Application Number 22", "major": "English", "submit_date": "2020-02-28"}, {"id": 23, "status": "submitted", "title": "Gabe Martin", "app_id": "Application Number 23", "major": "Sports Marketing", "submit_date": "2020-02-01"}, {"id": 24, "status": "accepted", "title": "Michael Scott", "app_id": "Application Number 24", "major": "Accounting", "submit_date": "2020-02-20"}, {"id": 25, "status": "accepted", "title": "Pam Scott", "app_id": "Application Number 25", "major": "English", "submit_date": "2020-02-22"}, {"id": 26, "status": "rejected", "title": "Jim Halpert", "app_id": "Application Number 26", "major": "English", "submit_date": "2020-02-03"}, {"id": 27, "status": "accepted", "title": "Gabe Halpert", "app_id": "Application Number 27", "major": "Sports Marketing", "submit_date": "2020-02-01"}, {"id": 28, "status": "accepted", "title": "Dwight Martinez", "app_id": "Application Number 28", "major": "Culinary Arts", "submit_date": "2020-02-18"}, {"id": 29, "status": "submitted", "title": "Jim Palmer", "app_id": "Application Number 29", "major": "Sports Marketing", "submit_date": "2020-02-08"}, {"id": 30, "status": "in review", "title": "Gabe Scott", "app_id": "Application Number 30", "major": "English", "submit_date": "2020-02-22"}, {"id": 31, "status": "in review", "title": "Kevin Palmer", "app_id": "Application Number 31", "major": "Art", "submit_date": "2020-02-22"}, {"id": 32, "status": "in review", "title": "Kevin Scott", "app_id": "Application Number 32", "major": "Sports Marketing", "submit_date": "2020-02-12"}, {"id": 33, "status": "accepted", "title": "Dwight Martin", "app_id": "Application Number 33", "major": "Math", "submit_date": "2020-02-08"}, {"id": 34, "status": "in review", "title": "Dwight Palmer", "app_id": "Application Number 34", "major": "Culinary Arts", "submit_date": "2020-02-03"}, {"id": 35, "status": "accepted", "title": "Erin Martin", "app_id": "Application Number 35", "major": "Computer Engineering", "submit_date": "2020-02-20"}, {"id": 36, "status": "rejected", "title": "Pam Schrute", "app_id": "Application Number 36", "major": "Sports Marketing", "submit_date": "2020-02-20"}, {"id": 37, "status": "in review", "title": "Kevin Martin", "app_id": "Application Number 37", "major": "Accounting", "submit_date": "2020-02-28"}, {"id": 38, "status": "accepted", "title": "Pam Martinez", "app_id": "Application Number 38", "major": "English", "submit_date": "2020-02-01"}, {"id": 39, "status": "submitted", "title": "Erin Scott", "app_id": "Application Number 39", "major": "English", "submit_date": "2020-02-20"}, {"id": 40, "status": "rejected", "title": "Kevin Halpert", "app_id": "Application Number 40", "major": "English", "submit_date": "2020-02-15"}, {"id": 41, "status": "accepted", "title": "Dwight Lewis", "app_id": "Application Number 41", "major": "Accounting", "submit_date": "2020-02-20"}, {"id": 42, "status": "submitted", "title": "Meridth Martinez", "app_id": "Application Number 42", "major": "Sports Marketing", "submit_date": "2020-02-15"}, {"id": 43, "status": "rejected", "title": "Gabe Martin", "app_id": "Application Number 43", "major": "Art", "submit_date": "2020-02-22"}, {"id": 44, "status": "submitted", "title": "Pam Martinez", "app_id": "Application Number 44", "major": "Math", "submit_date": "2020-02-03"}, {"id": 45, "status": "accepted", "title": "Pam Scott", "app_id": "Application Number 45", "major": "Computer Science", "submit_date": "2020-02-22"}, {"id": 46, "status": "submitted", "title": "Oscar Scott", "app_id": "Application Number 46", "major": "Culinary Arts", "submit_date": "2020-02-12"}, {"id": 47, "status": "submitted", "title": "Oscar Martinez", "app_id": "Application Number 47", "major": "Culinary Arts", "submit_date": "2020-02-15"}, {"id": 48, "status": "accepted", "title": "Kevin Palmer", "app_id": "Application Number 48", "major": "Computer Science", "submit_date": "2020-02-01"}, {"id": 49, "status": "submitted", "title": "Oscar Halpert", "app_id": "Application Number 49", "major": "Computer Science", "submit_date": "2020-02-12"}, {"id": 50, "status": "in review", "title": "Gabe Scott", "app_id": "Application Number 50", "major": "Art", "submit_date": "2020-02-08"}, {"id": 51, "status": "in review", "title": "Angela Scott", "app_id": "Application Number 51", "major": "Math", "submit_date": "2020-02-03"}, {"id": 52, "status": "in review", "title": "Gabe Halpert", "app_id": "Application Number 52", "major": "Culinary Arts", "submit_date": "2020-02-05"}, {"id": 53, "status": "rejected", "title": "Angela Martin", "app_id": "Application Number 53", "major": "Sports Marketing", "submit_date": "2020-02-08"}, {"id": 54, "status": "rejected", "title": "Kevin Palmer", "app_id": "Application Number 54", "major": "Math", "submit_date": "2020-02-20"}, {"id": 55, "status": "accepted", "title": "Michael Scott", "app_id": "Application Number 55", "major": "Computer Engineering", "submit_date": "2020-02-03"}, {"id": 56, "status": "submitted", "title": "Dwight Halpert", "app_id": "Application Number 56", "major": "Culinary Arts", "submit_date": "2020-02-20"}, {"id": 57, "status": "rejected", "title": "Oscar Palmer", "app_id": "Application Number 57", "major": "Sports Marketing", "submit_date": "2020-02-28"}, {"id": 58, "status": "submitted", "title": "Angela Scott", "app_id": "Application Number 58", "major": "Math", "submit_date": "2020-02-20"}, {"id": 59, "status": "rejected", "title": "Oscar Martin", "app_id": "Application Number 59", "major": "Art", "submit_date": "2020-02-01"}, {"id": 60, "status": "submitted", "title": "Erin Schrute", "app_id": "Application Number 60", "major": "Sports Marketing", "submit_date": "2020-02-15"}, {"id": 61, "status": "in review", "title": "Erin Halpert", "app_id": "Application Number 61", "major": "Art", "submit_date": "2020-02-15"}, {"id": 62, "status": "accepted", "title": "Meridth Halpert", "app_id": "Application Number 62", "major": "Culinary Arts", "submit_date": "2020-02-05"}, {"id": 63, "status": "rejected", "title": "Gabe Martinez", "app_id": "Application Number 63", "major": "Computer Engineering", "submit_date": "2020-02-22"}, {"id": 64, "status": "accepted", "title": "Angela Scott", "app_id": "Application Number 64", "major": "Accounting", "submit_date": "2020-02-18"}, {"id": 65, "status": "submitted", "title": "Angela Martin", "app_id": "Application Number 65", "major": "Computer Science", "submit_date": "2020-02-08"}, {"id": 66, "status": "rejected", "title": "Pam Palmer", "app_id": "Application Number 66", "major": "Math", "submit_date": "2020-02-18"}, {"id": 67, "status": "accepted", "title": "Pam Palmer", "app_id": "Application Number 67", "major": "Sports Marketing", "submit_date": "2020-02-20"}, {"id": 68, "status": "accepted", "title": "Oscar Martin", "app_id": "Application Number 68", "major": "Art", "submit_date": "2020-02-12"}, {"id": 69, "status": "in review", "title": "Jim Martin", "app_id": "Application Number 69", "major": "Math", "submit_date": "2020-02-15"}, {"id": 70, "status": "submitted", "title": "Kevin Scott", "app_id": "Application Number 70", "major": "Computer Engineering", "submit_date": "2020-02-28"}, {"id": 71, "status": "accepted", "title": "Meridth Scott", "app_id": "Application Number 71", "major": "Computer Science", "submit_date": "2020-02-01"}, {"id": 72, "status": "submitted", "title": "Gabe Martinez", "app_id": "Application Number 72", "major": "Art", "submit_date": "2020-02-08"}, {"id": 73, "status": "in review", "title": "Jim Martinez", "app_id": "Application Number 73", "major": "Accounting", "submit_date": "2020-02-01"}, {"id": 74, "status": "accepted", "title": "Angela Schrute", "app_id": "Application Number 74", "major": "Culinary Arts", "submit_date": "2020-02-15"}, {"id": 75, "status": "accepted", "title": "Angela Martinez", "app_id": "Application Number 75", "major": "Accounting", "submit_date": "2020-02-28"}, {"id": 76, "status": "accepted", "title": "Michael Halpert", "app_id": "Application Number 76", "major": "Computer Science", "submit_date": "2020-02-03"}, {"id": 77, "status": "submitted", "title": "Gabe Martinez", "app_id": "Application Number 77", "major": "Culinary Arts", "submit_date": "2020-02-05"}, {"id": 78, "status": "accepted", "title": "Angela Schrute", "app_id": "Application Number 78", "major": "Computer Science", "submit_date": "2020-02-15"}, {"id": 79, "status": "rejected", "title": "Pam Martinez", "app_id": "Application Number 79", "major": "Accounting", "submit_date": "2020-02-03"}, {"id": 80, "status": "submitted", "title": "Meridth Schrute", "app_id": "Application Number 80", "major": "Math", "submit_date": "2020-02-05"}, {"id": 81, "status": "submitted", "title": "Erin Martinez", "app_id": "Application Number 81", "major": "Math", "submit_date": "2020-02-05"}, {"id": 82, "status": "accepted", "title": "Pam Halpert", "app_id": "Application Number 82", "major": "Computer Engineering", "submit_date": "2020-02-03"}, {"id": 83, "status": "in review", "title": "Pam Palmer", "app_id": "Application Number 83", "major": "Art", "submit_date": "2020-02-05"}, {"id": 84, "status": "submitted", "title": "Pam Lewis", "app_id": "Application Number 84", "major": "Math", "submit_date": "2020-02-12"}, {"id": 85, "status": "submitted", "title": "Michael Palmer", "app_id": "Application Number 85", "major": "Culinary Arts", "submit_date": "2020-02-18"}, {"id": 86, "status": "submitted", "title": "Michael Halpert", "app_id": "Application Number 86", "major": "Math", "submit_date": "2020-02-20"}, {"id": 87, "status": "accepted", "title": "Michael Martinez", "app_id": "Application Number 87", "major": "Computer Science", "submit_date": "2020-02-01"}, {"id": 88, "status": "accepted", "title": "Kevin Martinez", "app_id": "Application Number 88", "major": "Accounting", "submit_date": "2020-02-03"}, {"id": 89, "status": "accepted", "title": "Gabe Palmer", "app_id": "Application Number 89", "major": "Computer Science", "submit_date": "2020-02-28"}, {"id": 90, "status": "rejected", "title": "Meridth Lewis", "app_id": "Application Number 90", "major": "Art", "submit_date": "2020-02-05"}, {"id": 91, "status": "rejected", "title": "Michael Martinez", "app_id": "Application Number 91", "major": "Culinary Arts", "submit_date": "2020-02-15"}, {"id": 92, "status": "accepted", "title": "Kevin Lewis", "app_id": "Application Number 92", "major": "Math", "submit_date": "2020-02-22"}, {"id": 93, "status": "in review", "title": "Gabe Lewis", "app_id": "Application Number 93", "major": "Computer Engineering", "submit_date": "2020-02-22"}, {"id": 94, "status": "in review", "title": "Kevin Halpert", "app_id": "Application Number 94", "major": "Computer Engineering", "submit_date": "2020-02-28"}, {"id": 95, "status": "accepted", "title": "Gabe Halpert", "app_id": "Application Number 95", "major": "Computer Science", "submit_date": "2020-02-12"}, {"id": 96, "status": "rejected", "title": "Kevin Lewis", "app_id": "Application Number 96", "major": "Computer Science", "submit_date": "2020-02-12"}, {"id": 97, "status": "submitted", "title": "Gabe Martinez", "app_id": "Application Number 97", "major": "English", "submit_date": "2020-02-01"}, {"id": 98, "status": "in review", "title": "Dwight Palmer", "app_id": "Application Number 98", "major": "Accounting", "submit_date": "2020-02-12"}, {"id": 99, "status": "rejected", "title": "Angela Palmer", "app_id": "Application Number 99", "major": "Computer Engineering", "submit_date": "2020-02-18"}, {"id": 100, "status": "rejected", "title": "Dwight Palmer", "app_id": "Application Number 100", "major": "Computer Science", "submit_date": "2020-02-08"}, {"id": 101, "status": "accepted", "title": "Dwight Martinez", "app_id": "Application Number 101", "major": "Sports Marketing", "submit_date": "2020-02-08"}, {"id": 102, "status": "in review", "title": "Erin Halpert", "app_id": "Application Number 102", "major": "Math", "submit_date": "2020-02-01"}, {"id": 103, "status": "submitted", "title": "Jim Martin", "app_id": "Application Number 103", "major": "Art", "submit_date": "2020-02-15"}, {"id": 104, "status": "rejected", "title": "Jim Scott", "app_id": "Application Number 104", "major": "Accounting", "submit_date": "2020-02-12"}, {"id": 105, "status": "submitted", "title": "Angela Halpert", "app_id": "Application Number 105", "major": "English", "submit_date": "2020-02-03"}, {"id": 106, "status": "rejected", "title": "Erin Scott", "app_id": "Application Number 106", "major": "English", "submit_date": "2020-02-03"}, {"id": 107, "status": "submitted", "title": "Pam Martin", "app_id": "Application Number 107", "major": "Culinary Arts", "submit_date": "2020-02-12"}, {"id": 108, "status": "in review", "title": "Oscar Palmer", "app_id": "Application Number 108", "major": "Culinary Arts", "submit_date": "2020-02-22"}, {"id": 109, "status": "in review", "title": "Kevin Martin", "app_id": "Application Number 109", "major": "Math", "submit_date": "2020-02-28"}, {"id": 110, "status": "submitted", "title": "Pam Lewis", "app_id": "Application Number 110", "major": "Accounting", "submit_date": "2020-02-28"}, {"id": 111, "status": "accepted", "title": "Angela Martin", "app_id": "Application Number 111", "major": "Accounting", "submit_date": "2020-02-20"}, {"id": 112, "status": "rejected", "title": "Michael Schrute", "app_id": "Application Number 112", "major": "Math", "submit_date": "2020-02-03"}, {"id": 113, "status": "submitted", "title": "Oscar Schrute", "app_id": "Application Number 113", "major": "Culinary Arts", "submit_date": "2020-02-20"}, {"id": 114, "status": "submitted", "title": "Jim Lewis", "app_id": "Application Number 114", "major": "Computer Science", "submit_date": "2020-02-12"}, {"id": 115, "status": "accepted", "title": "Michael Schrute", "app_id": "Application Number 115", "major": "Culinary Arts", "submit_date": "2020-02-22"}, {"id": 116, "status": "in review", "title": "Angela Halpert", "app_id": "Application Number 116", "major": "Sports Marketing", "submit_date": "2020-02-22"}, {"id": 117, "status": "accepted", "title": "Michael Scott", "app_id": "Application Number 117", "major": "Computer Engineering", "submit_date": "2020-02-20"}, {"id": 118, "status": "submitted", "title": "Dwight Halpert", "app_id": "Application Number 118", "major": "Math", "submit_date": "2020-02-18"}, {"id": 119, "status": "submitted", "title": "Oscar Scott", "app_id": "Application Number 119", "major": "English", "submit_date": "2020-02-15"}, {"id": 120, "status": "accepted", "title": "Kevin Scott", "app_id": "Application Number 120", "major": "Culinary Arts", "submit_date": "2020-02-18"}, {"id": 121, "status": "in review", "title": "Angela Martin", "app_id": "Application Number 121", "major": "Math", "submit_date": "2020-02-12"}, {"id": 122, "status": "in review", "title": "Gabe Martinez", "app_id": "Application Number 122", "major": "Art", "submit_date": "2020-02-28"}, {"id": 123, "status": "accepted", "title": "Angela Scott", "app_id": "Application Number 123", "major": "Art", "submit_date": "2020-02-08"}, {"id": 124, "status": "submitted", "title": "Erin Palmer", "app_id": "Application Number 124", "major": "Accounting", "submit_date": "2020-02-12"}, {"id": 125, "status": "in review", "title": "Oscar Schrute", "app_id": "Application Number 125", "major": "Computer Engineering", "submit_date": "2020-02-08"}, {"id": 126, "status": "in review", "title": "Erin Halpert", "app_id": "Application Number 126", "major": "Computer Science", "submit_date": "2020-02-20"}, {"id": 127, "status": "submitted", "title": "Angela Halpert", "app_id": "Application Number 127", "major": "Math", "submit_date": "2020-02-18"}, {"id": 128, "status": "rejected", "title": "Meridth Scott", "app_id": "Application Number 128", "major": "Computer Science", "submit_date": "2020-02-15"}, {"id": 129, "status": "submitted", "title": "Michael Martin", "app_id": "Application Number 129", "major": "Math", "submit_date": "2020-02-15"}, {"id": 130, "status": "in review", "title": "Dwight Halpert", "app_id": "Application Number 130", "major": "Accounting", "submit_date": "2020-02-28"}, {"id": 131, "status": "rejected", "title": "Kevin Martin", "app_id": "Application Number 131", "major": "Computer Science", "submit_date": "2020-02-01"}, {"id": 132, "status": "submitted", "title": "Michael Schrute", "app_id": "Application Number 132", "major": "English", "submit_date": "2020-02-08"}, {"id": 133, "status": "accepted", "title": "Oscar Lewis", "app_id": "Application Number 133", "major": "Computer Science", "submit_date": "2020-02-08"}, {"id": 134, "status": "rejected", "title": "Erin Halpert", "app_id": "Application Number 134", "major": "Accounting", "submit_date": "2020-02-01"}, {"id": 135, "status": "rejected", "title": "Erin Martin", "app_id": "Application Number 135", "major": "Math", "submit_date": "2020-02-28"}, {"id": 136, "status": "accepted", "title": "Dwight Scott", "app_id": "Application Number 136", "major": "Computer Science", "submit_date": "2020-02-20"}, {"id": 137, "status": "rejected", "title": "Dwight Palmer", "app_id": "Application Number 137", "major": "Culinary Arts", "submit_date": "2020-02-05"}, {"id": 138, "status": "submitted", "title": "Oscar Scott", "app_id": "Application Number 138", "major": "Sports Marketing", "submit_date": "2020-02-28"}, {"id": 139, "status": "in review", "title": "Jim Halpert", "app_id": "Application Number 139", "major": "Accounting", "submit_date": "2020-02-28"}, {"id": 140, "status": "submitted", "title": "Gabe Halpert", "app_id": "Application Number 140", "major": "Art", "submit_date": "2020-02-18"}, {"id": 141, "status": "accepted", "title": "Michael Palmer", "app_id": "Application Number 141", "major": "Sports Marketing", "submit_date": "2020-02-22"}, {"id": 142, "status": "in review", "title": "Erin Lewis", "app_id": "Application Number 142", "major": "Accounting", "submit_date": "2020-02-12"}, {"id": 143, "status": "submitted", "title": "Erin Schrute", "app_id": "Application Number 143", "major": "Computer Science", "submit_date": "2020-02-08"}, {"id": 144, "status": "rejected", "title": "Dwight Lewis", "app_id": "Application Number 144", "major": "Computer Engineering", "submit_date": "2020-02-20"}, {"id": 145, "status": "in review", "title": "Jim Martin", "app_id": "Application Number 145", "major": "Math", "submit_date": "2020-02-28"}, {"id": 146, "status": "rejected", "title": "Angela Martinez", "app_id": "Application Number 146", "major": "Computer Science", "submit_date": "2020-02-12"}, {"id": 147, "status": "accepted", "title": "Kevin Scott", "app_id": "Application Number 147", "major": "Sports Marketing", "submit_date": "2020-02-05"}, {"id": 148, "status": "submitted", "title": "Pam Martin", "app_id": "Application Number 148", "major": "Sports Marketing", "submit_date": "2020-02-15"}, {"id": 149, "status": "accepted", "title": "Dwight Martinez", "app_id": "Application Number 149", "major": "Art", "submit_date": "2020-02-03"}]
+
+// [{
+//     id: 1,
+//     icon: "📬",
+//     status: "submitted",
+//     title: "Michael Scott",
+//     app_id: "Application Number 12345",
+//     major : "Computer Science",
+//     submit_date : '2022-02-08'
+// }, {
+//     id: 2,
+//     icon: "📬",
+//     status: "submitted",
+//     title: "Dwight Schrute",
+//     app_id: "Application Number 12345",
+//     major : "Math",
+//     submit_date : '2022-02-06'
+// }, {
+//     id: 3,
+//     icon: "📬",
+//     status: "submitted",
+//     title: "Pam Halpert",
+//     app_id: "Application Number 12345",
+//     major: "Art",
+//     submit_date : '2022-02-06'
+// }, {
+//     id: 4,
+//     icon: "📬",
+//     status: "submitted",
+//     title: "Jim Halpert",
+//     app_id: "Application Number 12345",
+//     major: "Sports Marketing",
+//     submit_date : '2022-02-06'
+// },
+// {
+//     id: 5,
+//     icon: "📬",
+//     status: "submitted",
+//     title: "Kevin Malone",
+//     app_id: "Application Number 12345",
+//     major: "Culinary Arts",
+//     submit_date : '2022-02-06'
+// },
+// {
+//     id: 6,
+//     icon: "📬",
+//     status: "submitted",
+//     title: "Oscar Martinez",
+//     app_id: "Application Number 12345",
+//     major: "Computer Engineering",
+//     submit_date : '2022-02-06'
+// },
+// {
+//     id: 7,
+//     icon: "📬",
+//     status: "submitted",
+//     title: "Angela Martin",
+//     app_id: "Application Number 12345",
+//     major: "Accounting",
+//     submit_date : '2022-02-07'
+// },
+// {
+//     id: 8,
+//     icon: "📬",
+//     status: "submitted",
+//     title: "Meridth Palmer",
+//     app_id: "Application Number 12345",
+//     major: "English",
+//     submit_date : '2022-02-05'
+// }
+// ];
 
 const statuses = [{
     status: "submitted",
     icon: "📬",
     color: "#EB5A46"
-}, {
+}, 
+{
     status: "in review",
     icon: "📝",
     color: "#00C2E0"
-}, {
+}, 
+{
     status: "rejected",
     icon: "❌",
     color: "#C377E0"

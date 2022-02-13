@@ -8,7 +8,9 @@ import PostAdd from '@material-ui/icons/PostAdd';
 import Drawer from '@material-ui/core/Drawer';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
-import TuneRoundedIcon from '@material-ui/icons/TuneRounded';
+import ManageSearchIcon from '@mui/icons-material/ManageSearch';
+import HomeIcon from '@mui/icons-material/Home';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 
 function PermMiniDrawerRight(props){
   const drawerWidth = 80;
@@ -27,7 +29,7 @@ function PermMiniDrawerRight(props){
     },
     drawerPaper: {
       width: drawerWidth,
-      top:40,
+      top:15,
       backgroundColor: 'transparent',
       overflow: 'visible',
     },
@@ -40,21 +42,25 @@ function PermMiniDrawerRight(props){
       // padding: theme.spacing(3),
     },
     '@global': {
-    // You should target [class*="MuiButton-root"] instead if you nest themes.
     '.MuiDrawer-paperAnchorDockedLeft': {
       border: 'none',
       },
     },
     icons: {
-      color: '#45464a',
-      fill: '#45464a'
+      color: '#363636',
+      fill: '#363636',
+      
+    },
+    iconContainer : {
+      textAlign: 'center',
+      justifyContent : 'center'
     }
   }));
     
     const classes = useStyles()
-    const scrollTo = (element) => {
-        document.getElementById(element).scrollIntoView()
-    }
+    // const scrollTo = (element) => {
+    //     document.getElementById(element).scrollIntoView()
+    // }
 
     return(
     <Drawer
@@ -67,11 +73,27 @@ function PermMiniDrawerRight(props){
         <Toolbar />
         <div className={classes.drawerContainer}>
           <List>
-              <ListItem button key={1} onClick={props.toggleDrawer('left', true)}>
-                <ListItemIcon >
+              <ListItem button key={1} onClick={() => alert('not implemented yet')}>
+                <ListItemIcon className={classes.iconContainer}>
                   <article className="icon-tooltip">
-                    <TuneRoundedIcon className={classes.icons} /><br/>
-                    <span className="icon-tooltiptext">Filters</span>
+                    <HomeIcon fontSize="large" className={classes.icons} /><br/>
+                    <span className="icon-tooltiptext">Home</span>
+                  </article>
+                </ListItemIcon>
+              </ListItem>
+              <ListItem button key={1} onClick={props.toggleDrawer('left', true)}>
+                <ListItemIcon className={classes.iconContainer}>
+                  <article className="icon-tooltip">
+                    <ManageSearchIcon fontSize="large" className={classes.icons} /><br/>
+                    <span className="icon-tooltiptext">Search</span>
+                  </article>
+                </ListItemIcon>
+              </ListItem>
+              <ListItem button key={1} onClick={() => alert('not implemented yet')}>
+                <ListItemIcon className={classes.iconContainer}>
+                  <article className="icon-tooltip">
+                    <ManageAccountsIcon fontSize="large" className={classes.icons} /><br/>
+                    <span className="icon-tooltiptext">Account</span>
                   </article>
                 </ListItemIcon>
               </ListItem>
