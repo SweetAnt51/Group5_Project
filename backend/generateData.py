@@ -1,7 +1,7 @@
 import json
 import random
 
-
+numberOfRecords = 150
 
 icons = ["📬", "📝", "❌", "✅"]
 status = ["submitted", "in review", "rejected", "accepted"]
@@ -12,7 +12,7 @@ submitDate = ["2020-02-01", "2020-02-08", "2020-02-15", "2020-02-20", "2020-02-0
 
 applications = []
 id = 0
-for i in range(0,150):
+for i in range(0,numberOfRecords):
     stat = random.randint(0, len(status) - 1)
     line = {
         "id": str(id),
