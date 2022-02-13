@@ -1,4 +1,7 @@
-# README FOR CLASS PROJECT
+# CEN6030 Group 5 Project
+
+## Description
+This is a flask web application that allows potential graduate students to apply for graduate school and allows faculty members to review and approve/deny the application.  Frontend is created/compiled in react and served through the flask server.
 
 ## Authors
 Dan Snyder  
@@ -6,7 +9,7 @@ Jean Faustin
 Raymond Valdez   
 Anthony Sweet  
 
-## Installation
+## Backend Setup
 To run the backend only:
 
 ### Install python requirements with:
