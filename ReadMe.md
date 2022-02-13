@@ -14,13 +14,28 @@ To run the backend only:
 
 ### Install python requirements with:
 
-From Home Directory:
+***Note: you can avoid installing the dependencies by activating the included virtual environment***  
+
+To activate the virtual environment:  
+1. `cd backend`  
+2. For Mac or Linux `source venv/bin/activate`    
+For Windows: `.\venv\Scripts\activate`  
+
+The virtual enviroment is now active and includes the required python packages.  
+
+To deactivate type `deactivate` into the terminal/console.  
+
+***If you do not want to use the virtual environment, you can install the dependencies with the steps below***  
+
+From Home Directory:  
 1. `cd backend`  
 2. `pip install -r requirements.txt`  
 
 ## Running the Application
 
 ### Run Server:
+
+From the backend directory:  
 `python __init__.py`  
 
 This will start the application and it will be available on your local machine at 127.0.0.1:5000 in your browser.  
