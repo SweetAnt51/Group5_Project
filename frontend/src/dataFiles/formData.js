@@ -1,5 +1,37 @@
 import submitButton from '../images/submit.svg'
 
+const stateOptions = [ 
+                        { value: '',
+                            label : '',
+                        },
+                        { value: 'ak',
+                        label : 'AK',
+                        },
+                        { value: 'ca',
+                        label : 'CA',
+                        },
+                        {
+                        value : 'fl',
+                        label : 'FL',
+                        }
+                    ]
+
+const countryOptions = [ 
+                        { value: '',
+                            label : '',
+                        },
+                        { value: 'united states',
+                        label : 'United States',
+                        },
+                        { value: 'canada',
+                        label : 'Canada',
+                        },
+                        {
+                        value : 'united kingdom',
+                        label : 'United Kingdom',
+                        }
+                    ]
+
 export const registerForm = [
                             {   //Label Section
                                 id: 'regiter',
@@ -88,12 +120,38 @@ export const loginForm = [
 
         ]
 
-export const applicationForm = [
+export const applicationFormPersonal = [[
                             {   //Label Section
                                 id: 'applicantInfo',
                                 type : 'label',
-                                text : 'Applicant Info'
+                                text : 'Name'
                                 //End Label Section
+                            },
+                            {
+                                id : 'prefix',
+                                type : 'select',
+                                label : 'PreFix',
+                                required : true,
+                                options : [ 
+                                    { value: '',
+                                        label : '',
+                                    },
+                                    { value: 'mr',
+                                      label : 'Mr.',
+                                    },
+                                    { value: 'ms',
+                                      label : 'Ms.',
+                                    },
+                                    {
+                                      value : 'mrs',
+                                      label : 'Mrs.',
+                                    },
+                                    {
+                                      value : 'none',
+                                      label : 'None/Other',
+                                    }
+                                ],
+                                name : 'app'                       
                             },
                             {
                                 id : 'fName',
@@ -117,17 +175,71 @@ export const applicationForm = [
                                 name : 'app'
                             },
                             {
+                                id : 'gender',
+                                type : 'select',
+                                label : 'Gender',
+                                required : true,
+                                name : 'app',
+                                options : [ 
+                                    { value: '',
+                                        label : '',
+                                    },
+                                    { value: 'male',
+                                      label : 'Male',
+                                    },
+                                    { value: 'female',
+                                      label : 'Female',
+                                    },
+                                    {
+                                      value : 'na',
+                                      label : 'Decline to Answer',
+                                    }
+                                ],
+                            },
+                            {
                                 id : 'dob',
                                 type : 'date',
                                 label : 'Date of Birth',
                                 required : true,
                                 name : 'app'
                             },
+                            {
+                                id : 'language',
+                                type : 'select',
+                                label : 'Native Language',
+                                required : true,
+                                name : 'app',
+                                options : [
+                                    { value : '',
+                                      label : ""    
+                                    },
+                                    { value : 'english',
+                                      label : "English"    
+                                    }
+                                ]
+                            }],[
                             {  //Label Section
                                 id: 'addressLabel',
                                 type : 'label',
                                 text : 'Current Address'
                                // End Label Section
+                            },
+                            {
+                                id : 'addressType',
+                                type : 'select',
+                                label : 'Address Type',
+                                required : true,
+                                options : [
+                                    {
+                                        value: '',
+                                        label : ''
+                                    },
+                                    {
+                                        value : 'permanent',
+                                        label : 'Permanent Residence'
+                                    }
+                                ],
+                                name : 'app'
                             },
                             {
                                 id : 'streetAddress',
@@ -148,27 +260,205 @@ export const applicationForm = [
                                 type : 'select',
                                 label : 'State',
                                 required : true,
-                                options : [ 
-                                            { value: '',
-                                                label : '',
-                                            },
-                                            { value: 'ak',
-                                              label : 'AK',
-                                            },
-                                            { value: 'ca',
-                                              label : 'CA',
-                                            },
-                                            {
-                                              value : 'fl',
-                                              label : 'FL',
-                                            }
-                                        ],
+                                options : stateOptions,
                                 name : 'app'
                             },
-                            {   //define submit button
-                                id: 'submitApplication',
-                                image : submitButton,
-                                type : 'button',
-                                text: 'Submit Application'
-                            }
-                            ]
+                            {
+                                id : 'zipCode',
+                                type : 'number',
+                                label : 'Zip Code',
+                                required : true,
+                                name : 'app'
+                            },
+                            {
+                                id : 'country',
+                                type : 'select',
+                                label : 'Country',
+                                required : true,
+                                options : countryOptions,
+                                name : 'app'
+                            },
+                            {  //Label Section
+                                id: 'contactLabel',
+                                type : 'label',
+                                text : 'Contact Information'
+                               // End Label Section
+                            },
+                            {
+                                id : 'homePhoneNumber',
+                                type : 'number',
+                                label : 'Home Phone',
+                                required : true,
+                                name : 'app'
+                            },
+                            {
+                                id : 'mobilePhoneNumber',
+                                type : 'number',
+                                label : 'Mobile Phone',
+                                required : true,
+                                name : 'app'
+                            },
+                            // {   //define submit button
+                            //     id: 'submitApplication',
+                            //     image : submitButton,
+                            //     type : 'button',
+                            //     text: 'Submit Application'
+                            // }
+                            ]]
+
+export const applicationFormEducation =  [
+                                    [
+                                    {
+                                        id : 'ceeb',
+                                        type : 'text',
+                                        label : 'CEEB',
+                                        required : true,
+                                        name : 'app'
+                                    },
+                                    {
+                                        id : 'institution',
+                                        type : 'text',
+                                        label : 'Institution',
+                                        required : true,
+                                        name : 'app'
+                                    },
+                                    {
+                                        id : 'city',
+                                        type : 'text',
+                                        label : 'City',
+                                        required : true,
+                                        name : 'app'
+                                    },
+                                    {
+                                        id : 'edState',
+                                        type : 'select',
+                                        label : 'State',
+                                        required : true,
+                                        options : stateOptions,
+                                        name : 'app'
+                                    }],
+                                    [
+                                    {
+                                        id : 'edCountry',
+                                        type : 'select',
+                                        label : 'Country',
+                                        required : true,
+                                        options : countryOptions,
+                                        name : 'app'
+                                    },
+                                    {
+                                        id : 'dateStarted',
+                                        type : 'date',
+                                        label : 'Start Date',
+                                        required : true,
+                                        name : 'app'
+                                    },
+                                    {
+                                        id : 'dateEnded',
+                                        type : 'date',
+                                        label : 'End Date',
+                                        required : true,
+                                        name : 'app'
+                                    },
+                                    {
+                                        id : 'degree',
+                                        type : 'select',
+                                        label : 'Degree Obtained',
+                                        required : true,
+                                        options : [
+                                            {value : "",
+                                             label : ""
+                                            },
+                                            {value : "none",
+                                            label : "None"
+                                            },
+                                            {value : "associates",
+                                            label : "Associates"
+                                            },
+                                            {value : "bachelors",
+                                            label : "Bachelors"
+                                            },
+                                            {value : "masters",
+                                            label : "Masters"
+                                            },
+                                            {value : "phd",
+                                            label : "PhD"
+                                            }
+                                        ],
+                                        name : 'app'
+                                    },
+                                ]]
+
+export const applicationTestScores =  [
+                                [{   //Label Section
+                                    id: 'testScoresLabel',
+                                    type : 'label',
+                                    text : 'Add Test Scores'
+                                    //End Label Section
+                                },
+                                {
+                                    id : 'testType',
+                                    type : 'select',
+                                    label : 'Test Type',
+                                    required : true,
+                                    options : [
+                                        { value : '',
+                                          label : ''
+                                        },
+                                        {
+                                          value : 'gmat',
+                                          label : 'GMAT'
+                                        }
+                                    ],
+                                    name : 'app'
+                                },
+                                {
+                                    id : 'testDate',
+                                    type : 'date',
+                                    label : 'Date Taken',
+                                    required : true,
+                                }],
+                                [
+                                {
+                                    id : 'totalScore',
+                                    type : 'number',
+                                    label : 'Total',
+                                    required : true,
+                                },
+                                {
+                                    id : 'verbalScore',
+                                    type : 'number',
+                                    label : 'Verbal',
+                                    required : true,
+                                },
+                                {
+                                    id : 'quantitativeScore',
+                                    type : 'number',
+                                    label : 'Quantitative',
+                                    required : true,
+                                },
+                                {
+                                    id : 'awaScore',
+                                    type : 'number',
+                                    label : 'AWA',
+                                    required : true,
+                                },
+                                {
+                                    id : 'intReasoning',
+                                    type : 'number',
+                                    label : 'Integrated Reasoning',
+                                    required : true,
+                                },
+                                {   //define add button
+                                    id: 'addTest',
+                                    image : submitButton,
+                                    type : 'button',
+                                    text: 'Add Test Score'
+                                }
+                            ]]
+
+export const applicationForm = [
+                                applicationFormPersonal,
+                                applicationFormEducation,
+                                applicationTestScores
+                                ]

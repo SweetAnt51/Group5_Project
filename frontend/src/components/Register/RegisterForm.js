@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import { fadeIn } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
-import { validateApplication, validateLogIn, validateRegistration } from '../dataFiles/formValidation';
+import { validateApplication, validateLogIn, validateRegistration } from '../../dataFiles/formValidation';
 import { makeStyles } from '@material-ui/core/styles';
 
 const fadeInAnimation = keyframes`${fadeIn}`;
@@ -15,7 +15,6 @@ const FadeInDiv = styled.div`
 
 export default function Form(props){
     var formData = props.formData
-    const [state, setState] = useState('')
 
     const useStyles = makeStyles((theme) => ({
         login: {   
@@ -35,6 +34,43 @@ export default function Form(props){
     
     const classes = useStyles();
 
+    const handlePwChange = (e) => {
+        if (e.target.value.length >= 8){
+            var length = true
+        }else {
+            length = false
+        }
+        if (e.target.value === document.getElementById('pw2').value && document.getElementById('pw1').value !== "" ){
+            var match = true
+        }else {
+            match = false
+        }
+        const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
+        var special = specialChars.test(e.target.value)
+        var lower = /[a-z]/.test(e.target.value)
+        var upper = /[A-Z]/.test(e.target.value)
+        var number = /[0-9]/.test(e.target.value)
+        props.setReq({
+                    length : length,
+                    lowerCase : lower,
+                    upperCase : upper,
+                    specialChar : special,
+                    number : number,
+                    match : match
+                })
+    }
+
+    const handlePw2Change = (e) => {
+        var newReq = {...props.req}
+        if (e.target.value === document.getElementById('pw1').value && document.getElementById('pw2').value !== ""){
+            var match = true
+        }else {
+            match = false
+        }
+        newReq.match = match
+        props.setReq(newReq)
+    }
+
     // function parses through the formData that was passed as a props and renders each form item.
     const renderInputs = (formData) =>{
         return formData.map((line, index) => {
@@ -47,45 +83,8 @@ export default function Form(props){
                         label = {line.label}
                         type = {line.type}
                         name = {line.name}
+                        onChange = {line.id === 'pw1' ? (e) => handlePwChange(e) : line.id === 'pw2' ? (e) => handlePw2Change(e) : null}
                         />
-                    : line.type === 'date' ? 
-                        <TextField required={line.required}
-                        id = {line.id}
-                        label = {line.label}
-                        type = {line.type}
-                        name = {line.name}
-                        InputLabelProps={{
-                            shrink: true,
-                          }}
-                        />
-                    :line.type === 'select' ?
-                    
-                        <TextField required={line.required}
-                        id = {line.id}
-                        label = {line.label}
-                        type = {line.type}
-                        select
-                        value = {line.id === 'state' ?
-                                    state
-                                :
-                                null
-                                }
-                        onChange = {line.id === 'state' ?
-                                        (e) => setState(e.target.value)
-                                    :
-                                    null
-                                    }
-                        
-                        >
-                            {line.options.map((option) => {
-                                return (
-                                <MenuItem key={option.value} value={option.value}>
-                                    {option.label}
-                                </MenuItem>
-                                )
-                                })}
-                        </TextField>
-
                     : line.type === 'button' ?
                         <div>
                             <br/>
@@ -120,33 +119,9 @@ export default function Form(props){
     }
 
     const handleSubmit = (type) => {
-
-        if (type === 'submitLogin'){
-            if (validateLogIn()){
-                var data = getFormValues('login') //this object will be sent to the backend.  Can be read in as a dictionary.
-                // fetch call for login will go here
-                if (document.getElementById('userName').value === 'anthony' || document.getElementById('userName').value === 'jean' || document.getElementById('userName').value === 'dan' || document.getElementById('userName').value === 'raymond') {
-                    props.setIsLoggedIn(true);
-                    props.setRole('reviewer')
-                    props.setMode('review')
-                }else{
-                    props.setIsLoggedIn(true);
-                    props.setRole('applicant')
-                    props.setMode('apply')
-                }
-            }
-        }
-
-        if (type === 'submitApplication'){
-            if (validateApplication()){
-                var data = getFormValues('app') //this object will be sent to the backend.  Can be read in as a dictionary.
-                //fetch call for submit app will go here
-                alert('Submit Application Not Implemented Yet.')
-            }
-        }
         
         if (type === 'submitRegistration'){
-            if (validateRegistration()){
+            if (validateRegistration(props.req)){
                 var data = getFormValues('register') //this object will be sent to the backend.  Can be read in as a dictionary.
                 //fetch call for register will go here
                 alert('Registeration Not Implemented Yet.')

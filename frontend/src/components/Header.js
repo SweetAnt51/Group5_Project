@@ -57,7 +57,7 @@ function Header(props) {
     return( 
         <header className={classes.header}>
 
-            <PopUpMenu setMode={props.setMode} isLoggedIn={props.isLoggedIn} role={props.role}/> 
+            {/* <PopUpMenu setMode={props.setMode} isLoggedIn={props.isLoggedIn} role={props.role}/>  */}
             
             <h1 className={classes.title}> 
                 {props.text}

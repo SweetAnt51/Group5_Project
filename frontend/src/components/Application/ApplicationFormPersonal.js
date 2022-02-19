@@ -5,8 +5,8 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import { fadeIn } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
-import { validateApplication, validateLogIn, validateRegistration } from '../dataFiles/formValidation';
 import { makeStyles } from '@material-ui/core/styles';
+
 
 const fadeInAnimation = keyframes`${fadeIn}`;
 const FadeInDiv = styled.div`
@@ -15,7 +15,6 @@ const FadeInDiv = styled.div`
 
 export default function Form(props){
     var formData = props.formData
-    const [state, setState] = useState('')
 
     const useStyles = makeStyles((theme) => ({
         login: {   
@@ -35,18 +34,33 @@ export default function Form(props){
     
     const classes = useStyles();
 
+    const handleChange = () => {
+        
+    }
+
+
+    const getValue = (id, type) => {
+        if (type === 'select'){
+            return props.selects[id]
+        }else{
+            return props.personalData[id]
+        }
+     }
+
     // function parses through the formData that was passed as a props and renders each form item.
     const renderInputs = (formData) =>{
         return formData.map((line, index) => {
             if (line.type !== 'label'){
                 return(
                 <div key={index}>
-                    {line.type === 'text' || line.type === 'password' || line.type === 'number' ?
+                    {line.type === 'text' || line.type === 'number' ?
                         <TextField required={line.required}
                         id = {line.id}
                         label = {line.label}
                         type = {line.type}
                         name = {line.name}
+                        value = {getValue(line.id, line.type)}
+                        onChange = {(e) => props.handleInputChange(e.target.value, line.id, 'personal')}
                         />
                     : line.type === 'date' ? 
                         <TextField required={line.required}
@@ -54,6 +68,8 @@ export default function Form(props){
                         label = {line.label}
                         type = {line.type}
                         name = {line.name}
+                        value = {getValue(line.id, line.type)}
+                        onChange = {(e) => props.handleInputChange(e.target.value, line.id, 'personal')}
                         InputLabelProps={{
                             shrink: true,
                           }}
@@ -64,18 +80,9 @@ export default function Form(props){
                         id = {line.id}
                         label = {line.label}
                         type = {line.type}
+                        onChange = {(e) => props.handleSelectChange(line.id, e.target.value)}
                         select
-                        value = {line.id === 'state' ?
-                                    state
-                                :
-                                null
-                                }
-                        onChange = {line.id === 'state' ?
-                                        (e) => setState(e.target.value)
-                                    :
-                                    null
-                                    }
-                        
+                        value = {getValue(line.id, line.type)}                        
                         >
                             {line.options.map((option) => {
                                 return (
@@ -86,12 +93,7 @@ export default function Form(props){
                                 })}
                         </TextField>
 
-                    : line.type === 'button' ?
-                        <div>
-                            <br/>
-                            <img className='submit_icon' id={line.id} type='image' src={line.image} alt={line.text} width='45px' hieght='45px' onClick={() => {handleSubmit(line.id)}}/>
-                        </div>           
-                    :                    
+                    :                  
                     null
                     }
                     
@@ -119,59 +121,37 @@ export default function Form(props){
         return formValues
     }
 
-    const handleSubmit = (type) => {
-
-        if (type === 'submitLogin'){
-            if (validateLogIn()){
-                var data = getFormValues('login') //this object will be sent to the backend.  Can be read in as a dictionary.
-                // fetch call for login will go here
-                if (document.getElementById('userName').value === 'anthony' || document.getElementById('userName').value === 'jean' || document.getElementById('userName').value === 'dan' || document.getElementById('userName').value === 'raymond') {
-                    props.setIsLoggedIn(true);
-                    props.setRole('reviewer')
-                    props.setMode('review')
-                }else{
-                    props.setIsLoggedIn(true);
-                    props.setRole('applicant')
-                    props.setMode('apply')
-                }
-            }
-        }
-
-        if (type === 'submitApplication'){
-            if (validateApplication()){
-                var data = getFormValues('app') //this object will be sent to the backend.  Can be read in as a dictionary.
-                //fetch call for submit app will go here
-                alert('Submit Application Not Implemented Yet.')
-            }
-        }
-        
-        if (type === 'submitRegistration'){
-            if (validateRegistration()){
-                var data = getFormValues('register') //this object will be sent to the backend.  Can be read in as a dictionary.
-                //fetch call for register will go here
-                alert('Registeration Not Implemented Yet.')
-            }
-        }
-    }
-
     return(
-        <FadeInDiv>
+        <FadeInDiv style={{width:'100%'}}>
             <div style={{   textAlign:'center',
                             margin:'auto',
-                            width:'85%',
-                            maxWidth:'800px',
-                            minWidth:'400px'
+                            width:'100%',
+                            maxWidth:'1000px',
+                            minWidth:'400px',
+                            display:'flex'
                         }}>
                 <Box
                     component="form"
                     sx={{
-                        '& .MuiTextField-root': { m: 1, width: '45ch' },
+                        '& .MuiTextField-root': { m: 1.5, width: '45ch', marginRight:'60px' },
                     }}
                     autoComplete="off"
                     id = 'test'
                 >
                     <div className={props.mode === 'login' ? classes.login : classes.genericForm}>
-                        {renderInputs(formData)}
+                        {renderInputs(formData[0])}
+                    </div>
+                </Box>
+                <Box
+                    component="form"
+                    sx={{
+                        '& .MuiTextField-root': { m: 1.5, width: '45ch', marginRight:'60px' },
+                    }}
+                    autoComplete="off"
+                    id = 'test'
+                >
+                    <div className={classes.genericForm}>
+                        {renderInputs(formData[1])}
                     </div>
                 </Box>
             </div>

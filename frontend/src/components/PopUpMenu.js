@@ -53,7 +53,7 @@ function PopUpMenu(props) {
               <MenuItem onClick={() => testFetch()}>Test Fetch</MenuItem>
             </div>
           :
-          props.role === 'reviewer' ?
+          props.role === 'faculty' ?
             <div>
               <MenuItem onClick = {() => props.setMode('review')}>Review Applications</MenuItem>
               <MenuItem onClick={() => testFetch()}>Test Fetch</MenuItem>

@@ -23,6 +23,25 @@ def get_data():
     
     return jsonify({'test':'test'})
 
+@app.route("/login", methods=['POST'])
+def login():
+    username = request.form['username']
+    pw = request.form['password']
+    
+
+    #call to database will go here to authenticate the user.
+    
+    #return this object to frontend with the correct fields.
+    logInObject = {
+        "authorized" : True, #should be false for failed login
+        "role" : 'applicant', #should either be applicant, faculty, or chair
+        "department" : None, #should be None for a applicant
+        "approvedFaculty" : True, #once someone has approved the faculty members role this flag will be true in the database. Set to true for all applicants.
+        "username" : username
+    } 
+
+    return jsonify(logInObject)
+
 #this route will be called when a faculty member opens the dashboard.  It returns all applications in the database.
 @app.route("/get_applications", methods=['GET'])
 def get_application():

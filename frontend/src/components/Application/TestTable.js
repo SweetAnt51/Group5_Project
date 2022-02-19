@@ -1,0 +1,48 @@
+import * as React from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
+export default function EducationTable(props){
+    var tableData = props.tableData
+
+    return (
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Test Type</TableCell>
+                <TableCell align="right">Date Taken</TableCell>
+                <TableCell align="right">Total Score</TableCell>
+                <TableCell align="right">Verbal</TableCell>
+                <TableCell align="right">Quantitative</TableCell>
+                <TableCell align="right">AWA</TableCell>
+                <TableCell align="right">Integrated Reasoning</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {tableData.map((row) => (
+                <TableRow
+                  key={row.name}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.testType.toUpperCase()}
+                  </TableCell>
+                  <TableCell align="right">{row.testDate}</TableCell>
+                  <TableCell align="right">{row.totalScore}</TableCell>
+                  <TableCell align="right">{row.verbalScore}</TableCell>
+                  <TableCell align="right">{row.quantativeScore}</TableCell>
+                  <TableCell align="right">{row.awaScore}</TableCell>
+                  <TableCell align="right">{row.intReasoning}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      );
+}

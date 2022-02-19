@@ -1,12 +1,13 @@
 
 import Header from './components/Header'
-import Form from './components/Form'
+import LoginForm from './components/LoginForm'
 import Board from './components/ProgressBoard/Board'
-import { applicationForm, loginForm, registerForm } from './dataFiles/formData'
+import { loginForm } from './dataFiles/formData'
 import {useState} from 'react'
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import {DndProvider} from "react-dnd";
 import Application from "./components/Application/Application"
+import Register from './components/Register/Register'
 
 function App() {
   // const [user, setUser] = useState('applicant')  **Not needed yet but will use to control what an applicant can see vs what a committee member can see.
@@ -17,9 +18,9 @@ function App() {
  
   return (
     <div>
-      <Header text="Demo for Testing" setMode={setMode} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} role={role}/>
+      <Header text="Graduate Application System" setMode={setMode} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} role={role}/>
       { isLoggedIn ? 
-        <div>
+        <div style={{width:'100%'}}>
         {mode === 'apply' ?
             
             <Application />
@@ -34,9 +35,9 @@ function App() {
         }
         </div>
         : mode === 'register' ?
-          <Form formData= {registerForm} />
+          <Register />
         : mode === 'login' ?
-          <Form formData= {loginForm} mode={mode} setIsLoggedIn={setIsLoggedIn} setMode={setMode} setRole={setRole}/>
+          <LoginForm formData= {loginForm} mode={mode} setIsLoggedIn={setIsLoggedIn} setMode={setMode} setRole={setRole}/>
         
         : null
       }

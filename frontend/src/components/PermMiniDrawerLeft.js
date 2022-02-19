@@ -1,10 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
-import PieChartTwoTone from '@material-ui/icons/PieChartTwoTone';
-import PollTwoTone from '@material-ui/icons/PollTwoTone';
-import TableChartTwoTone from '@material-ui/icons/TableChartTwoTone';
-import PostAdd from '@material-ui/icons/PostAdd';
 import Drawer from '@material-ui/core/Drawer';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
