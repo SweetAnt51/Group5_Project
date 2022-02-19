@@ -35,7 +35,7 @@ function App() {
         }
         </div>
         : mode === 'register' ?
-          <Register />
+          <Register setMode={setMode} />
         : mode === 'login' ?
           <LoginForm formData= {loginForm} mode={mode} setIsLoggedIn={setIsLoggedIn} setMode={setMode} setRole={setRole}/>
         

@@ -107,7 +107,7 @@ export default function LoginForm(props){
             formData.append('username', formValues.userName)
             formData.append('password', formValues.pw)
             // fetch call for login will go here
-            fetch('/login',{
+            await fetch('/login',{
                 method: "POST",
                 body: formData
             }).then(res => {

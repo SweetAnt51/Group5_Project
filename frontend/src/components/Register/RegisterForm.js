@@ -88,7 +88,7 @@ export default function Form(props){
                     : line.type === 'button' ?
                         <div>
                             <br/>
-                            <img className='submit_icon' id={line.id} type='image' src={line.image} alt={line.text} width='45px' hieght='45px' onClick={() => {handleSubmit(line.id)}}/>
+                            <img className='submit_icon' id={line.id} type='image' src={line.image} alt={line.text} width='45px' hieght='45px' onClick={() => {handleSubmit()}}/>
                         </div>           
                     :                    
                     null
@@ -110,7 +110,7 @@ export default function Form(props){
 
     const getFormValues = (formName) => { //function returns a FormData object for all inputs with the parameter name.
         var formValues = new FormData();  //this object will be sent to the backend.  Can be read in as a dictionary.
-        let inputArray = document.getElementsByName('login')
+        let inputArray = document.getElementsByName(formName)
         inputArray.forEach(element => {
             formValues.append(element.id, element.value)
         });
@@ -118,15 +118,31 @@ export default function Form(props){
         return formValues
     }
 
-    const handleSubmit = (type) => {
-        
-        if (type === 'submitRegistration'){
-            if (validateRegistration(props.req)){
-                var data = getFormValues('register') //this object will be sent to the backend.  Can be read in as a dictionary.
-                //fetch call for register will go here
-                alert('Registeration Not Implemented Yet.')
-            }
+    const handleSubmit = async() => {
+    
+        if (validateRegistration(props.req)){
+            var data = getFormValues('register') //this object will be sent to the backend.  Can be read in as a dictionary.
+            
+            await fetch('/register',{
+                method: "POST",
+                body: data
+            }).then(res => {
+                if (res.status !== 200){
+                    console.log(res);
+                    return false;
+                }
+                return res.json();
+            }).then(response => {
+                if (!response.success){
+                    alert('There has been an error. \n' + response.error);
+                }else{
+                    alert('Registration Successful!')
+                    props.setMode('login');
+                }
+            });
+            
         }
+        
     }
 
     return(

@@ -15,7 +15,7 @@ export default function Register(props) {
 
     return(
         <div style={{}}>
-            <RegisterForm formData={registerForm} req={req} setReq={setReq}/>
+            <RegisterForm formData={registerForm} req={req} setReq={setReq} setMode={props.setMode}/>
             <PasswordRequirements req={req}/>
         </div>
     )
