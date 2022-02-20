@@ -1,31 +1,22 @@
-import {useState} from 'react';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import { fadeIn } from 'react-animations';
 import styled, { keyframes } from 'styled-components';
-// import { validatePersonal } from '../../dataFiles/formValidation';
 import { makeStyles } from '@material-ui/core/styles';
-import EducationTable from './EducationTable';
 import submitButton from '../../images/submit.svg'
 import {ceebMap} from "../../dataFiles/selectInfo"
+import {academicMastersPrograms, academicDoctoralPrograms} from "../../dataFiles/selectInfo"
+import {applicationUnlistedSchools, applicationAddUnlistedSchool, applicationUWFInformation, applicationProgramInfo } from "../../dataFiles/formData"
 
 const fadeInAnimation = keyframes`${fadeIn}`;
 const FadeInDiv = styled.div`
   animation: 1.5s ${fadeInAnimation};
 `;
 
-export default function ApplicationFormEducation(props) {
-    var formData = props.formData
+export default function ApplicationFormAcademicIntent(props){
     const useStyles = makeStyles((theme) => ({
-        login: {   
-                    width:'100%',
-                    height: '100%',
-                    margin: 'auto',
-                    marginTop : '15%'
-                    // display:'flex',
-        },
         genericForm : {
                     width:'100%',
                     height: '100%',
@@ -36,29 +27,12 @@ export default function ApplicationFormEducation(props) {
 
     const classes = useStyles();
 
-
-
-    const getValue = (id) => {
-        if(id === 'edState'){
-            return props.selects.edState
-        }
-        if(id === 'edCountry'){
-            return props.selects.edCountry
-        } 
-        if(id === 'degree'){
-            return props.selects.degree
-        }
-    }
-
-    const handleCeebChange = (name) => {
-        props.handleInputChange()
-        if (name === "" || typeof ceebMap[name] == 'undefined'){
-            document.getElementById('institution').value = ""
+    const getValue = (id, type) => {
+        if (type === 'select'){
+            return props.selects[id]
         }else{
-            document.getElementById('institution').value = ceebMap[name]
+            return props.academicIntentData[id]
         }
-        
-
     }
 
     // function parses through the formData that was passed as a props and renders each form item.
@@ -73,49 +47,46 @@ export default function ApplicationFormEducation(props) {
                         label = {line.label}
                         type = {line.type}
                         name = {line.name}
-                        disabled = {line.id === 'institution' ? true: false }
-                        onChange = {() => props.handleInputChange()}
-                        InputLabelProps={{
-                            shrink: true,
-                          }}
-                        />
-                    : line.type === 'number' ?
-                        <TextField required={line.required}
-                        id = {line.id}
-                        label = {line.label}
-                        type = {line.type}
-                        name = {line.name}
-                        
-                        onChange = {line.id === 'ceeb' ? (e) => handleCeebChange(e.target.value) : () => props.handleInputChange()}
-                        />
-                    : line.type === 'date' ? 
-                        <TextField required={line.required}
-                        id = {line.id}
-                        label = {line.label}
-                        type = {line.type}
-                        name = {line.name}
-                        onChange = {() => props.handleInputChange()}
-                        InputLabelProps={{
-                            shrink: true,
-                          }}
+                        value = {getValue(line.id, line.type)}
+                        onChange = {(e) => props.handleInputChange(e.target.value, line.id, 'academicIntent')}
                         />
                     :line.type === 'select' ?
-                    
                         <TextField required={line.required}
                         id = {line.id}
                         label = {line.label}
                         type = {line.type}
                         onChange = {(e) => props.handleSelectChange(line.id, e.target.value)}
                         select
-                        value = {getValue(line.id)}                        
+                        value = {getValue(line.id, line.type)}                        
                         >
-                            {line.options.map((option) => {
-                                return (
-                                <MenuItem key={option.value} value={option.value}>
-                                    {option.label}
-                                </MenuItem>
-                                )
-                                })}
+                            { line.id === 'academicProgram' ?
+                                props.selects.academicLevel === 'doctoral' ?
+                                    academicDoctoralPrograms.map((option) => {
+                                        return (
+                                        <MenuItem key={option.value} value={option.value}>
+                                            {option.label}
+                                        </MenuItem>
+                                        )
+                                        })
+                                    :
+                                    academicMastersPrograms.map((option) => {
+                                        return (
+                                        <MenuItem key={option.value} value={option.value}>
+                                            {option.label}
+                                        </MenuItem>
+                                        )
+                                        })
+
+                                
+                                :
+                                line.options.map((option) => {
+                                    return (
+                                    <MenuItem key={option.value} value={option.value}>
+                                        {option.label}
+                                    </MenuItem>
+                                    )
+                                    })
+                            }
                         </TextField>
 
                     :                  
@@ -153,8 +124,13 @@ export default function ApplicationFormEducation(props) {
                     autoComplete="off"
                     id = 'test'
                 >
-                    <div className={props.mode === 'login' ? classes.login : classes.genericForm}>
-                        {renderInputs(formData[0])}
+                    <div className={classes.genericForm}>
+                        {renderInputs(applicationUnlistedSchools)}
+                        {props.selects.foundSchool === 'no' ?
+                            renderInputs(applicationAddUnlistedSchool)
+                        :
+                            null
+                        }
                     </div>
                 </Box>
                 <Box
@@ -165,20 +141,13 @@ export default function ApplicationFormEducation(props) {
                     autoComplete="off"
                     id = 'test'
                 >
-                    <div className={props.mode === 'login' ? classes.login : classes.genericForm}>
-                        {renderInputs(formData[1])}
+                    <div className={classes.genericForm}>
+                        {renderInputs(applicationUWFInformation)}
+                        {renderInputs(applicationProgramInfo)}
                     </div>
                 </Box>
                 
             </div>
-            <div>
-                    <br/>
-                    <img className='submit_icon' id={'addEducation'} type='image' src={submitButton} alt={'addEducation'} width='45px' height='45px' onClick={() => props.addEducation()}/>
-                </div>   
-            <div>
-                <EducationTable tableData={props.tableData} />
-            </div>
         </FadeInDiv>
-    )
+    )    
 }
-

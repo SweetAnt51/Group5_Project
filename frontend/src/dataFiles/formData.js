@@ -1,36 +1,6 @@
 import submitButton from '../images/submit.svg'
+import { stateSelections, languageSelections, countrySelections, academicPrograms } from './selectInfo'
 
-const stateOptions = [ 
-                        { value: '',
-                            label : '',
-                        },
-                        { value: 'ak',
-                        label : 'AK',
-                        },
-                        { value: 'ca',
-                        label : 'CA',
-                        },
-                        {
-                        value : 'fl',
-                        label : 'FL',
-                        }
-                    ]
-
-const countryOptions = [ 
-                        { value: '',
-                            label : '',
-                        },
-                        { value: 'united states',
-                        label : 'United States',
-                        },
-                        { value: 'canada',
-                        label : 'Canada',
-                        },
-                        {
-                        value : 'united kingdom',
-                        label : 'United Kingdom',
-                        }
-                    ]
 
 export const registerForm = [
                             {   //Label Section
@@ -209,14 +179,7 @@ export const applicationFormPersonal = [[
                                 label : 'Native Language',
                                 required : true,
                                 name : 'app',
-                                options : [
-                                    { value : '',
-                                      label : ""    
-                                    },
-                                    { value : 'english',
-                                      label : "English"    
-                                    }
-                                ]
+                                options : languageSelections
                             }],[
                             {  //Label Section
                                 id: 'addressLabel',
@@ -260,7 +223,7 @@ export const applicationFormPersonal = [[
                                 type : 'select',
                                 label : 'State',
                                 required : true,
-                                options : stateOptions,
+                                options : stateSelections,
                                 name : 'app'
                             },
                             {
@@ -275,7 +238,7 @@ export const applicationFormPersonal = [[
                                 type : 'select',
                                 label : 'Country',
                                 required : true,
-                                options : countryOptions,
+                                options : countrySelections,
                                 name : 'app'
                             },
                             {  //Label Section
@@ -310,7 +273,7 @@ export const applicationFormEducation =  [
                                     [
                                     {
                                         id : 'ceeb',
-                                        type : 'text',
+                                        type : 'number',
                                         label : 'CEEB',
                                         required : true,
                                         name : 'app'
@@ -334,7 +297,7 @@ export const applicationFormEducation =  [
                                         type : 'select',
                                         label : 'State',
                                         required : true,
-                                        options : stateOptions,
+                                        options : stateSelections,
                                         name : 'app'
                                     }],
                                     [
@@ -343,7 +306,7 @@ export const applicationFormEducation =  [
                                         type : 'select',
                                         label : 'Country',
                                         required : true,
-                                        options : countryOptions,
+                                        options : countrySelections,
                                         name : 'app'
                                     },
                                     {
@@ -390,12 +353,7 @@ export const applicationFormEducation =  [
                                 ]]
 
 export const applicationTestScores =  [
-                                [{   //Label Section
-                                    id: 'testScoresLabel',
-                                    type : 'label',
-                                    text : 'Add Test Scores'
-                                    //End Label Section
-                                },
+                                [
                                 {
                                     id : 'testType',
                                     type : 'select',
@@ -462,3 +420,248 @@ export const applicationForm = [
                                 applicationFormEducation,
                                 applicationTestScores
                                 ]
+
+export const applicationUnlistedSchools = [
+                                {   //Label Section
+                                    id: 'unlistedSchools',
+                                    type : 'label',
+                                    text : 'Unlisted Schools'
+                                    //End Label Section
+                                },
+                                {
+                                    id : 'foundSchool',
+                                    type : 'select',
+                                    label : 'Did you find your school on the previous page?',
+                                    required : true,
+                                    options : [
+                                        { value : 'yes',
+                                        label : 'Yes'
+                                        },
+                                        {
+                                        value : 'no',
+                                        label : 'No'
+                                        }
+                                    ],
+                                    name : 'app'
+                                }]
+
+export const applicationAddUnlistedSchool = [
+                                    {   //Label Section
+                                        id: 'addUnlistedSchool',
+                                        type : 'label',
+                                        text : 'Enter Unlisted Schools'
+                                        //End Label Section
+                                    },
+                                    {
+                                        id : 'unlisted1',
+                                        type : 'text',
+                                        label : 'Unlisted School Name 1',
+                                        required : false,
+                                        name : 'app'
+                                    },
+                                    {
+                                        id : 'unlisted2',
+                                        type : 'text',
+                                        label : 'Unlisted School Name 2',
+                                        required : false,
+                                        name : 'app'
+                                    },
+                                    {
+                                        id : 'unlisted3',
+                                        type : 'text',
+                                        label : 'Unlisted School Name 3',
+                                        required : false,
+                                        name : 'app'
+                                    },
+                                ]
+
+export const applicationUWFInformation = [
+                                {   //Label Section
+                                    id: 'uwfInfo',
+                                    type : 'label',
+                                    text : 'UWF Information'
+                                    //End Label Section
+                                },
+                                {
+                                    id : 'currentlyEnrolled',
+                                    type : 'select',
+                                    label : 'Are You Currently Enrolled at UWF?',
+                                    required : true,
+                                    options : [
+                                        { value : '',
+                                        label : ''
+                                        },
+                                        { value : 'yes',
+                                        label : 'Yes'
+                                        },
+                                        {
+                                        value : 'no',
+                                        label : 'No'
+                                        }
+                                    ],
+                                    name : 'app'
+                                },
+                                {
+                                    id : 'currentUWFId',
+                                    type : 'text',
+                                    label : 'If yes, enter your current UWF ID',
+                                    required : false,
+                                    name : 'app'
+                                }]
+
+export const applicationProgramInfo = [
+                                {   //Label Section
+                                    id: 'programInfo',
+                                    type : 'label',
+                                    text : 'Application Program Information'
+                                    //End Label Section
+                                },
+                                {
+                                    id : 'academicLevel',
+                                    type : 'select',
+                                    label : 'Academic Level Applying For',
+                                    required : true,
+                                    options : [
+                                        { value : '',
+                                        label : ''
+                                        },
+                                        { value : 'masters',
+                                        label : 'Masters'
+                                        },
+                                        {
+                                        value : 'doctoral',
+                                        label : 'Doctoral'
+                                        }
+                                    ],
+                                    name : 'app'
+                                },
+                                {
+                                    id : 'academicProgram',
+                                    type : 'select',
+                                    label : 'Academic Program Applying For',
+                                    required : true,
+                                    options : [],
+                                    name : 'app'
+                                },
+                                {
+                                    id : 'entryTerm',
+                                    type : 'select',
+                                    label : 'Entry Term',
+                                    required : true,
+                                    options : [
+                                        { value : '',
+                                        label : ''
+                                        },
+                                        { value : '2022_fall',
+                                        label : '2022 (fall)'
+                                        },
+                                        {
+                                        value : '2023_spring',
+                                        label : '2023 (Spring)'
+                                        }
+                                    ],
+                                    name : 'app'
+                                },
+                                ]
+
+export const applicationAddDocs = [
+                                {   //Label Section
+                                    id: 'addDocs',
+                                    type : 'label',
+                                    text : 'Add Supporting Documents'
+                                    //End Label Section
+                                },
+                                {
+                                    id : 'fileType',
+                                    type : 'select',
+                                    label : 'Type of File',
+                                    required : true,
+                                    options : [
+                                        { value : '',
+                                        label : ''
+                                        },
+                                        { value : 'transcript',
+                                        label : 'Transcript'
+                                        },
+                                        {
+                                        value : 'loi',
+                                        label : 'Letter of Intent'
+                                        },
+                                        {
+                                        value : 'resume',
+                                        label : 'Resume'
+                                        }
+                                    ],
+                                    name : 'app'
+                                },
+                                {
+                                    id : 'file',
+                                    type : 'file',
+                                    label : 'Select File',
+                                    required : true,
+                                },
+                                {   //define add button
+                                    id: 'addFile',
+                                    image : submitButton,
+                                    type : 'button',
+                                    text: 'Add File to Application'
+                                }
+]
+
+export const  disciplinaryHistory = [[{    
+                                        id : 'question1',
+                                        type : 'select',
+                                        label : 'Conduct Question 1',
+                                        required : true,
+                                        options : [
+                                            { value : '',
+                                            label : ''
+                                            },
+                                            { value : 'yes',
+                                            label : 'Yes'
+                                            },
+                                            {
+                                            value : 'no',
+                                            label : 'No'
+                                            }
+                                        ],
+                                        name : 'app'
+                                    }],[{
+                                        id : 'question2',
+                                        type : 'select',
+                                        label : 'Conduct Question 2',
+                                        required : true,
+                                        options : [
+                                            { value : '',
+                                            label : ''
+                                            },
+                                            { value : 'yes',
+                                            label : 'Yes'
+                                            },
+                                            {
+                                            value : 'no',
+                                            label : 'No'
+                                            }
+                                        ],
+                                        name : 'app'
+                                    }],
+                                    [{
+                                        id : 'question3',
+                                        type : 'select',
+                                        label : 'Conduct Question 3',
+                                        required : true,
+                                        options : [
+                                            { value : '',
+                                            label : ''
+                                            },
+                                            { value : 'yes',
+                                            label : 'Yes'
+                                            },
+                                            {
+                                            value : 'no',
+                                            label : 'No'
+                                            }
+                                        ],
+                                        name : 'app'
+                                    }
+                                ]]

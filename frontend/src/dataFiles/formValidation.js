@@ -47,11 +47,22 @@ export const validatePersonal = (pers, selects) => {
         pers.homePhoneNumber === "" || 
         pers.mobilePhoneNumber === "" 
     ){
-        console.log(false)
         return false
     }else{
-        console.log('true')
         return true
     }
+}
+
+export const validateAcademicIntent = (intent, selects) => {
+    if (selects.currentlyEnrolled === 'yes' && intent.currentUWFId === ""){
+        return false
+    }else if (selects.foundSchool === 'no' && intent.unlisted1 === ""){
+        return false
+    }else if (selects.academicLevel === "" || selects.academicProgram === "" || selects.entryTerm === ""){
+        return false
+    }else{
+        return true
+    }
+
 }
 

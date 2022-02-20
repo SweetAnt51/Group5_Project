@@ -58,6 +58,27 @@ def login():
 
     return jsonify(logInObject)
 
+@app.route("/submitApplication", methods=['POST'])
+def submitApplication():
+    
+    form = request.form #all form data is in here
+
+    status = request.form['status'] #flag for whether the application is to just be saved vs submitted.
+
+    uploadedFiles = request.files #uploaded files are here
+    uploadedFileTypes = json.loads(request.form['fileInfo']) #cooresponding file types are here (transcript, resume, etc)
+
+    #call to database to save application here.
+
+    print(form)
+    print(uploadedFiles)
+    for i in uploadedFileTypes:
+        print(i)
+    print(uploadedFileTypes)
+    
+    return jsonify({'success' : True}) #return success: false if there is an error.
+
+
 #this route will be called when a faculty member opens the dashboard.  It returns all applications in the database.
 @app.route("/get_applications", methods=['GET'])
 def get_application():
